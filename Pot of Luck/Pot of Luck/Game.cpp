@@ -20,7 +20,8 @@ Game::Game() :
 	setupBackground(); 
 	setupBushes();
 	setupPotOfCrystals();
-	setupFontAndText(); // load font 
+	setupLives();
+
 }
 
 //Overloaded Constructor
@@ -137,6 +138,9 @@ void Game::render()
 	//Character
 	m_window.draw(m_bodyOfCharacter.getCharacterBody());
 
+	//Arrow
+	m_window.draw(m_fireArrow.getArrowBody());
+
 	//EnemyA
 	m_window.draw(m_stationaryEnemyA.getBodyA());
 	m_window.draw(m_stationaryEnemyB.getBodyB());
@@ -154,25 +158,22 @@ void Game::render()
 
 
 //Load the font and setup the text message for screen
-void Game::setupFontAndText()
+void Game::setupLives()
 {
 	if (!m_ArialBlackfont.loadFromFile("ASSETS\\FONTS\\Antonio-Regular.ttf"))
 	{
 		cout << "Problem loading Font" << endl;
 	}
 	m_scoreText.setFont(m_ArialBlackfont);
-	m_scoreText.setString("Pot of Luck");
+	m_scoreText.setString("Lives: ");
 	m_scoreText.setStyle(sf::Text::Italic | sf::Text::Bold);
-	//m_welcomeMessage.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
 	m_scoreText.setPosition(50.0f, 30.0f);
-	m_scoreText.setCharacterSize(80U);
+	m_scoreText.setCharacterSize(60U);
 	m_scoreText.setOutlineColor(sf::Color::Cyan);
 	m_scoreText.setFillColor(sf::Color::Black);
 	m_scoreText.setOutlineThickness(5.0f);
 
 }
-
-
 
 
 //Setting up Background Sprite
@@ -236,6 +237,8 @@ void Game::setupBushes()
 	m_bushSpriteH.setTexture(m_bushTextureVertical);
 }
 
+
+//Set up Pot of Crystals Sprite
 void Game::setupPotOfCrystals()
 {
 	if (!m_potOfCrystalsTexture.loadFromFile("ASSETS\\IMAGES\\pot_of_crystals.png"))
@@ -247,6 +250,7 @@ void Game::setupPotOfCrystals()
 	m_potOfCrystalsSprite.setPosition(400.0f, 50.0f);
 	m_potOfCrystalsSprite.setTexture(m_potOfCrystalsTexture);
 }
+
 
 
 

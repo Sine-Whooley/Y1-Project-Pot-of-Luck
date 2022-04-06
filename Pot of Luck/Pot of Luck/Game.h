@@ -21,17 +21,19 @@
 #include "EnemyA.h"
 #include "EnemyB.h"
 #include "Arrow.h"
-#include "MainMenu.h"
+#include "Open-Screen.h"
 
 const float PLAYER = 1;
 const float PLAYER_WIDTH = 20.0f;
-const float SCREEN_WIDTH = 1200.0f;
-const float SCREEN_HEIGHT = 800.0f;
+static float screenWidth = 1200;
+static float screenHeight = 800;
 
 class EnemyA;
 class EnemyB;
 class Character;
 class Player;
+class Arrow;
+
 
 class Game
 {
@@ -42,7 +44,6 @@ public:
 	/// main method for game
 	/// </summary>
 	void run();
-
 
 private:
 
@@ -56,20 +57,22 @@ private:
 	void update(sf::Time t_deltaTime);
 	void render();
 	
-	void setupFontAndText();
+	void setupLives();
+
 	//void checkBoundary(sf::Vector2f t_position, sf::Vector2f &t_velocity);
 	void setupBackground();
 	void setupBushes();
 	void setupPotOfCrystals();
-	void setupCharacterSpeed();
-	void collisionDetection();
+	//void setupCharacterSpeed();
+	//void collisionDetection();
 
-	
 	//Player
 	Character m_bodyOfCharacter;				//Sets up the object m_player from the Player class
 	int m_speed;
 	//sf::Vector2f m_position;
 	//sf::Vector2f m_velocity;
+
+	Arrow m_fireArrow;
 
 	//Enemy A (Stationary Enemy)
 	EnemyA m_stationaryEnemyA;		//Sets up the object m_stationaryEnemy from the EnemyA class
@@ -115,8 +118,6 @@ private:
 	//Pot of Crystals
 	sf::Sprite m_potOfCrystalsSprite;
 	sf::Texture m_potOfCrystalsTexture;
-
-
 };
 
 #endif // !GAME_HPP

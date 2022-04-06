@@ -22,15 +22,20 @@
 
 
 #include "Game.h"
+#include "Open-Screen.h"
+#include <SFML/Graphics.hpp>
+#include <iostream>
 
-/// <summary>
-/// main enrtry point
-/// </summary>
-/// <returns>success or failure</returns>
+class Open_Screen;
+
+// Main enrtry point
+// <returns>success or failure</returns>
 int main()
 {
-	Game game;
-	game.run();
 
-	return 1; // success
+		Game game;
+		game.run();
+
+		return 1; // success
+	
 }
