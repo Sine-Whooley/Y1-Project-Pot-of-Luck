@@ -65,12 +65,12 @@ private:
 	void setupPotOfCrystals();
 	//void setupCharacterSpeed();
 	//void collisionDetection();
+	//void setupCrystal();
+
 
 	//Player
 	Character m_bodyOfCharacter;				//Sets up the object m_player from the Player class
 	int m_speed;
-	//sf::Vector2f m_position;
-	//sf::Vector2f m_velocity;
 
 	Arrow m_fireArrow;
 
